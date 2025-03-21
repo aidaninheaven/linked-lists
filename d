@@ -73,4 +73,4 @@ class LinkedList:
 
 studentLinkedList = LinkedList()
 
-studentLinkedList.insertAtBeginning
+studentLinkedList.insertAtBeginn("Shahood")
