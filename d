@@ -8,69 +8,81 @@ class LinkedList:
         self.head = None
             
     def insertAtBegin(self, data):
-        newNode = Node(data)  # Create a new node with the given data
-        newNode.next = self.head  # Point the new node to the current head
-        self.head = newNode  # Update head to the new node
+        newNode = Node(data)  #create a new node with the given data
+        newNode.next = self.head  #point the new node to the current head
+        self.head = newNode  #update head to the new node
 
     def insertAtIndex(self, data, index):
         if index == 0:
-            self.insertAtBegin(data)  # If index is 0, insert at the beginning
+            self.insertAtBegin(data)  #if index is 0, insert at the beginning
             return
         
-        newNode = Node(data)  # Create a new node
-        currentNode = self.head  # Start from the head
+        newNode = Node(data)  #create a new node
+        currentNode = self.head  #start from the head
         position = 0
         
-        # Traverse the list until reaching the position before the target index
+        #traverse the list until reaching the position before the target index
         while currentNode is not None and position < index - 1:
             position += 1
             currentNode = currentNode.next
         
         if currentNode is None:
-            print("Index not present.")  # If index is out of range
+            print("Index not present.")  #if index is out of range
             return
         
-        newNode.next = currentNode.next  # Point new node to the next node
-        currentNode.next = newNode  # Link previous node to the new node
+        newNode.next = currentNode.next  #point new node to the next node
+        currentNode.next = newNode  #link previous node to the new node
 
     def insertAtEnd(self, data):
-        newNode = Node(data)  # Create a new node
-        if self.head is None:  # If list is empty, set head to the new node
+        newNode = Node(data)  #create a new node
+        if self.head is None:  #i list is empty, set head to the new node
             self.head = newNode
             return
         
-        currentNode = self.head  # Start from head
-        while currentNode.next:  # Traverse until the last node
+        currentNode = self.head  #start from head
+        while currentNode.next:  #traverse until the last node
             currentNode = currentNode.next
         
-        currentNode.next = newNode  # Link last node to new node
+        currentNode.next = newNode  #link last node to new node
 
     def updateNode(self, val, index):
-        currentNode = self.head  # Start from head
+        currentNode = self.head  #start from head
         position = 0 
         
-        # Traverse the list until reaching the target index
+        #traverse the list until reaching the target index
         while currentNode is not None and position != index:
             position += 1
             currentNode = currentNode.next
         
         if currentNode is None:
-            print("Index not present.")  # If index is out of range
+            print("Index not present.")  #if index is out of range
         else:
-            currentNode.data = val  # Update the node's data
+            currentNode.data = val  #update the node's data
 
     def removeFirstNode(self):
-        if self.head is None:  # If list is empty, do nothing
+        if self.head is None:  #if list is empty, do nothing
             return
-        self.head = self.head.next  # Move head to the next node
+        self.head = self.head.next  #move head to the next node
         
     def printList(self):
-        currentNode = self.head  # Start from head
-        while currentNode:  # Traverse through the list
-            print(currentNode.data, end=" -> ")  # Print node data
-            currentNode = currentNode.next  # Move to the next node
-        print("None")  # Indicate the end of the list
+        currentNode = self.head  #start from head
+        while currentNode:  #traverse through the list
+            print(currentNode.data, end=" -> ")  #print node data
+            currentNode = currentNode.next  #move to the next node
+        print("None")  #indicate the end of the list
 
-studentLinkedList = LinkedList()
+SLL = LinkedList()
 
-studentLinkedList.insertAtBeginn("Shahood")
+SLL.insertAtBegin("Shahood")
+SLL.insertAtIndex("Marcos", 1)
+SLL.insertAtIndex("Aidan", 2)
+SLL.insertAtIndex("Ryan", 3)
+SLL.insertAtIndex("Muntag", 4)
+SLL.insertAtIndex("Chris", 5)
+SLL.insertAtIndex("Leo", 6)
+SLL.insertAtIndex("Mason", 7)
+SLL.insertAtIndex("Gavin", 8)
+SLL.insertAtIndex("Nathan", 9)
+SLL.insertAtEnd("Jaiden")
+
+SLL.printList()
